@@ -1,0 +1,27 @@
+---
+import EducationSnippet from "./education_snippet.astro";
+import UDO from "../assets/UDO.png";
+import CISCO from "../assets/CISCO.webp";
+---
+
+<div class="w-full">
+    <h1 class="text-6xl ml-15 mt-15">My Education</h1>
+
+    <div class="mt-15 pl-20 grid grid-cols-2">
+        <EducationSnippet
+            title="Universidad de Oriente"
+            years="2019 - 2025"
+            degree="Bachelor in Computer Science"
+            description="Graduated with academic honors (GPA 8.61/10)."
+            image={UDO.src}
+        />
+
+        <EducationSnippet
+            title="Cisco Networking Academy"
+            years="2022"
+            degree="CCNAv7: Introduction to Networks"
+            description="As part of a course in Universidad de Oriente."
+            image={CISCO.src}
+        />
+    </div>
+</div>

@@ -1,0 +1,28 @@
+---
+import ProjectSnippet from "./project_snippet.astro";
+import faefolk from '../assets/Tasty_Faefolk.png';
+import faefolk2 from '../assets/Tasty_Faefolk_2.png';
+import pokemon from '../assets/Pokemon.png';
+import pokemon2 from '../assets/Pokemon_2.png';
+---
+
+<div class="w-full flex flex-col gap-30">
+    <h1 class="text-6xl ml-15 mt-15">
+        My Projects
+    </h1>
+
+    <ProjectSnippet
+    title="ASCII Cards Database Webpage"
+    techs={["ReactJS", "NestJS", "TypeScript", "MySQL"]}
+    description="As a personal project, this webpage stores a catalog of cards for a fictional TCG. It has authentication and encryption for users, CRUD's for both cards and expantions, and error handling. The funny part is that the GUI is mostly composed of ASCII characters. The cards, the buttons, the input fields, the modals, are all done with ASCII."
+    images={[pokemon.src, pokemon2.src]}
+    id="1"
+    />
+    <ProjectSnippet
+    title="Neural Network to diagnose study habits"
+    techs={["Flutter", "Dart", "SQLite", "iOS", "Android"]}
+    description="As a requisite for graduation, this project is a mobile app whose main functionality is 49 items questionnaire, about the habits and tendencies a stundent has when approacing their academic life. Their answers are sent to an Artificial Neural Network (Perceptron) and analized based on supervised training."
+    images={[faefolk.src, faefolk2.src]}
+    id="2"
+    />
+</div>
