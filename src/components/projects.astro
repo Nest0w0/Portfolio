@@ -1,9 +1,16 @@
 ---
 import ProjectSnippet from "./project_snippet.astro";
-import faefolk from '../assets/Tasty_Faefolk.png';
-import faefolk2 from '../assets/Tasty_Faefolk_2.png';
-import pokemon from '../assets/Pokemon.png';
-import pokemon2 from '../assets/Pokemon_2.png';
+import cardgame1 from '../assets/screenshots/cardgame_1.png';
+import cardgame2 from '../assets/screenshots/cardgame_2.png';
+import cardgame3 from '../assets/screenshots/cardgame_3.png';
+import cardgame4 from '../assets/screenshots/cardgame_4.png';
+import cardgame5 from '../assets/screenshots/cardgame_5.png'; 
+
+import app1 from '../assets/screenshots/app_1.png';
+import app2 from '../assets/screenshots/app_2.png';
+import app3 from '../assets/screenshots/app_3.png';
+import app4 from '../assets/screenshots/app_4.png';
+import app5 from '../assets/screenshots/app_5.png';
 ---
 
 <div class="w-full flex flex-col gap-30">
@@ -15,14 +22,18 @@ import pokemon2 from '../assets/Pokemon_2.png';
     title="ASCII Cards Database Webpage"
     techs={["ReactJS", "NestJS", "TypeScript", "MySQL"]}
     description="As a personal project, this webpage stores a catalog of cards for a fictional TCG. It has authentication and encryption for users, CRUD's for both cards and expantions, and error handling. The funny part is that the GUI is mostly composed of ASCII characters. The cards, the buttons, the input fields, the modals, are all done with ASCII."
-    images={[pokemon.src, pokemon2.src]}
+    images={[cardgame1.src, cardgame2.src, cardgame3.src, cardgame4.src, cardgame5.src]}
+    image_width={175}
+    link = "https://github.com/Nest0w0/ASCII-cards"
     id="1"
     />
     <ProjectSnippet
     title="Neural Network to diagnose study habits"
     techs={["Flutter", "Dart", "SQLite", "iOS", "Android"]}
-    description="As a requisite for graduation, this project is a mobile app whose main functionality is 49 items questionnaire, about the habits and tendencies a stundent has when approacing their academic life. Their answers are sent to an Artificial Neural Network (Perceptron) and analized based on supervised training."
-    images={[faefolk.src, faefolk2.src]}
+    description="As a requisite for graduation, this project is a mobile app whose main functionality is 49 items questionnaire, about the habits and tendencies a student has when approacing their academic life. Their answers are sent to an Artificial Neural Network (Perceptron) and analized based on supervised training."
+    images={[app1.src, app2.src, app3.src, app4.src, app5.src]}
+    image_width={90}
+    link = "https://github.com/Nest0w0/tesis"
     id="2"
     />
 </div>

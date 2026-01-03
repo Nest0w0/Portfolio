@@ -1,21 +1,26 @@
 ---
-import leftArrow from '../assets/left arrow.png';
-import rightArrow from '../assets/right arrow.png';
+import { number } from "astro:schema";
+import leftArrow from "../assets/left arrow.png";
+import rightArrow from "../assets/right arrow.png";
+import github from "../assets/github2.png";
 
 interface Props {
     title: string;
     techs: string[];
     description: string;
     images: string[];
-    id: string
+    image_width: number;
+    link: string;
+    id: string;
 }
 
-const { title, techs, description, images, id } = Astro.props;
+const { title, techs, description, images, image_width, link, id } =
+    Astro.props;
 const uniqueId = id;
 ---
 
-<div class="flex flex-row w-full">
-    <div class="flex flex-col w-1/2 h-full pl-20 justify-center">
+<div class="flex flex-row w-full mb-10">
+    <div class="flex flex-col w-1/2 h-full pl-20 pr-10 justify-center">
         <p class="text-4xl">
             {title}
         </p>
@@ -23,7 +28,7 @@ const uniqueId = id;
         <div class="grid grid-cols-4 gap-5 my-5 w-full pr-20">
             {
                 techs.map((tech) => (
-                    <a class="flex text-2xl text-white bg-gray-800 px-2 py-1 mx-4 rounded-sm items-center justify-center">
+                    <a class="flex text-xl text-white bg-gray-800 px-2 py-1 mx-4 rounded-sm items-center justify-center">
                         {tech}
                     </a>
                 ))
@@ -31,14 +36,26 @@ const uniqueId = id;
         </div>
 
         <p class="text-2xl">About it:</p>
-        <p class="text-2xl">
+        <p class="text-2xl text-justify">
             {description}
         </p>
+
+        <div class="flex flex-row items-center mt-4 gap-5">
+            <p class="text-xl">Code:</p>
+            <a href=`${link}` class="w-12 h-12">
+                <img src={github.src} class="rounded-md" />
+            </a>
+        </div>
     </div>
 
     <div class="m-auto relative flex flex-row items-center">
-        <div class="overflow-hidden transition-transform ease-in-out">
-            <div id=`carousel-track-${uniqueId}` class="flex w-90 transition-transform duration-500 ease-in-out">
+        <div
+            class="overflow-hidden transition-transform ease-in-out border-3 border-gray-800"
+        >
+            <div
+                id=`carousel-track-${uniqueId}`
+                class=`flex  w-${image_width} duration-500`
+            >
                 {
                     images.map((image, index) => (
                         <img
@@ -51,22 +68,24 @@ const uniqueId = id;
 
             <button
                 id=`prev-button-${uniqueId}`
-                class="absolute top-1/2 left-4 -translate-y-1/2 bg-white bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all focus:outline-none"
-                aria-label="Anterior">
-                <img src={leftArrow.src} class="w-5 h-5"/>
+                class="absolute top-1/2 left-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all focus:outline-none"
+                aria-label="Anterior"
+            >
+                <img src={leftArrow.src} class="w-5 h-5" />
             </button>
 
             <button
                 id=`next-button-${uniqueId}`
-                class="absolute top-1/2 right-4 -translate-y-1/2 bg-white bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all focus:outline-none"
-                aria-label="Siguiente">
-                <img src={rightArrow.src} class="w-5 h-5"/>
+                class="absolute top-1/2 right-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-all focus:outline-none"
+                aria-label="Siguiente"
+            >
+                <img src={rightArrow.src} class="w-5 h-5" />
             </button>
         </div>
     </div>
 </div>
 
-<script define:vars={{uniqueId, images}}>
+<script define:vars={{ uniqueId, images }}>
     const track = document.getElementById(`carousel-track-${uniqueId}`);
     const slides = Array.from(track.children);
     const nextButton = document.getElementById(`next-button-${uniqueId}`);
