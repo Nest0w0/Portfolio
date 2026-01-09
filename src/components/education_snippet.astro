@@ -4,17 +4,17 @@ const {title, years, degree, description, image} = Astro.props;
 
 <div class="h-100">
     <div class="flex flex-col">
-        <p class="text-4xl justify-evenly">
+        <p class="text-2xl lg:text-4xl justify-evenly">
             {title}
         </p>
-        <p class="text-3xl">
-            {years} | {degree}
+        <p class="text-xl lg:text-3xl">
+            {years} <br/> {degree}
         </p>
-        <p class="text-2xl text-justify">
+        <p class="text-xl lg:text-2xl text-justify">
             {description}
         </p>
     </div>
         
-    <img src={image} class="w-50 h-50 mt-10 ml-30"/>
+    <img src={image} class="w-30 lg:w-50 h-30 md:w-40 md:h-40 lg:h-50 mt-5 md:mt-20 m-auto"/>
   
 </div>

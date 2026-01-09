@@ -19,16 +19,18 @@ const { title, techs, description, images, image_width, link, id } =
 const uniqueId = id;
 ---
 
-<div class="flex flex-row w-full mb-10">
-    <div class="flex flex-col max-w-1/2 pl-20 pr-10 ">
-        <p class="text-4xl">
+<div class="flex flex-col lg:flex-row w-full mt-20">
+    <div class="flex flex-col lg:max-w-1/2 pl-5 lg:pl-10 pr-10">
+        <p class="text-2xl font-bold md:text-3xl lg:text-4xl text-center lg:text-justify">
             {title}
         </p>
 
-        <div class="grid grid-cols-4 gap-5 my-5 w-full pr-20">
+        <div
+            class=" my-5 grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-0 w-full justify-items-center "
+        >
             {
                 techs.map((tech) => (
-                    <a class="flex text-xl text-white bg-gray-800 px-2 py-1 mx-4 rounded-sm items-center justify-center">
+                    <a class="flex text-sm lg:text-base w-full md:w-3/4 text-white bg-gray-800 mt-2 py-2 rounded-sm  justify-center">
                         {tech}
                     </a>
                 ))
@@ -36,31 +38,31 @@ const uniqueId = id;
         </div>
 
         <p class="text-2xl">About it:</p>
-        <p class="text-2xl text-justify">
+        <p class="text-xl lg:text-2xl text-justify">
             {description}
         </p>
 
-        <div class="flex flex-row items-center mt-4 ml-5 gap-5">
+        <div class="flex flex-row items-center mt-4 gap-5">
             <p class="text-xl">Code:</p>
-            <a href=`${link}` class="w-12 h-12">
+            <a href=`${link}` class="w-8 h-8 lg:w-12 lg:h-12">
                 <img src={github.src} class="rounded-md" />
             </a>
         </div>
     </div>
 
-    <div class=`m-auto relative pr-10 items-center`>
+    <div class=`lg:mt-10 md:mt-10 m-auto`>
         <div
-            class="overflow-hidden transition-transform ease-in-out border-4 border-gray-800"
+            class="overflow-hidden w-full relative lg:border-4 lg:border-gray-800"
         >
             <div
                 id=`carousel-track-${uniqueId}`
-                class=`flex ${image_width} duration-500`
+                class=`flex ${image_width} transition-transform duration-500`
             >
                 {
                     images.map((image, index) => (
                         <img
                             src={image}
-                            class="w-full flex-shrink-0 object-cover"
+                            class="w-full aspect-[5/4] md:aspect-auto lg:aspect-auto flex-shrink-0 object-contain"
                         />
                     ))
                 }
@@ -68,7 +70,7 @@ const uniqueId = id;
 
             <button
                 id=`prev-button-${uniqueId}`
-                class="absolute top-1/2 left-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full transition-all focus:outline-none"
+                class="absolute top-1/2 left-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full transition-all"
                 aria-label="Anterior"
             >
                 <img src={leftArrow.src} class="w-5 h-5" />
@@ -76,7 +78,7 @@ const uniqueId = id;
 
             <button
                 id=`next-button-${uniqueId}`
-                class="absolute mr-10 top-1/2 right-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full transition-all focus:outline-none"
+                class="absolute top-1/2 right-4 -translate-y-1/2 bg-neutral-300 bg-opacity-50 text-white p-3 rounded-full transition-all"
                 aria-label="Siguiente"
             >
                 <img src={rightArrow.src} class="w-5 h-5" />
@@ -96,7 +98,7 @@ const uniqueId = id;
         if (track) {
             const SlideWidth = slides[0].clientWidth;
             console.log(SlideWidth);
-            track.style.transform = `translateX(-${currentIndex * SlideWidth}px)`;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
     };
 
